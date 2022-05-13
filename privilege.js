@@ -40,7 +40,7 @@ const modals = () => {
                     }
                 } else {
                     console.log('Update your browser for a more interactive experience');
-                    modals.hidden = true;
+                    modal.hidden = true;
 
                 }
             })
