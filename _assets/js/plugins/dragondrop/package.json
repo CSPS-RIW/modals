@@ -1,0 +1,14 @@
+{
+  "name": "DragonDrop_BS",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "watch-css": "sass --watch style/scss/:style/"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  }
+}
