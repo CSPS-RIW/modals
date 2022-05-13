@@ -24,9 +24,11 @@ const modals = () => {
     }
 
     modals.forEach((modal) => {
-        triggerBtn.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                if (typeof dialog.showModal === "function") {
+        if (typeof dialog.showModal === "function") {
+
+            triggerBtn.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+
                     // if trigger's data-modal maches modal's id, open that one
                     if (e.target.getAttribute('data-modal') === modal.getAttribute('id')) {
                         modal.setAttribute('showing', '');
@@ -38,62 +40,63 @@ const modals = () => {
                             once: true
                         })
                     }
-                } else {
-                    console.log('Update your browser for a more interactive experience');
-                    modal.hidden = true;
+
+                })
+            });
+
+            // Close modals
+            closeBtns.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    let closestDialog = e.target.closest('dialog');
+                    // Animate closing modals
+                    closestDialog.setAttribute('hiding', '');
+                    closestDialog.close();
+                    closestDialog.addEventListener('animationend', () => {
+                        closestDialog.removeAttribute('hiding');
+                        content.removeAttribute('inert');
+                    }, {
+                        once: true
+                    })
+                });
+            });
+            // Close modal w/ backdrop
+            modal.addEventListener('click', (e) => {
+                let closestDialog = e.target.closest('dialog');
+                // e.target.nodeName === 'DIALOG' ? modal.close() : '';
+                if (e.target.nodeName === 'DIALOG') {
+                    closestDialog.setAttribute('hiding', '');
+                    closestDialog.addEventListener('animationend', () => {
+                        closestDialog.close();
+                        closestDialog.removeAttribute('hiding');
+                        content.removeAttribute('inert');
+                    }, {
+                        once: true
+                    })
+                }
+            })
+
+            // remove inert when closing modal with esc key
+            modal.addEventListener('keydown', (e) => {
+                // e.preventDefault();
+                let closestDialog = e.target.closest('dialog');
+                if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
+                    console.log(e.target.nodeName);
+                    closestDialog.setAttribute('hiding', '');
+                    closestDialog.addEventListener('animationend', () => {
+                        closestDialog.close();
+                        closestDialog.removeAttribute('hiding');
+                        content.removeAttribute('inert');
+                    }, {
+                        once: true
+                    })
 
                 }
             })
-        });
+        } else {
+            console.warn('Update your browser for a more interactive experience');
+            modal.hidden = true;
 
-        // Close modals
-        closeBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                let closestDialog = e.target.closest('dialog');
-                // Animate closing modals
-                closestDialog.setAttribute('hiding', '');
-                closestDialog.close();
-                closestDialog.addEventListener('animationend', () => {
-                    closestDialog.removeAttribute('hiding');
-                    content.removeAttribute('inert');
-                }, {
-                    once: true
-                })
-            });
-        });
-        // Close modal w/ backdrop
-        modal.addEventListener('click', (e) => {
-            let closestDialog = e.target.closest('dialog');
-            // e.target.nodeName === 'DIALOG' ? modal.close() : '';
-            if (e.target.nodeName === 'DIALOG') {
-                closestDialog.setAttribute('hiding', '');
-                closestDialog.addEventListener('animationend', () => {
-                    closestDialog.close();
-                    closestDialog.removeAttribute('hiding');
-                    content.removeAttribute('inert');
-                }, {
-                    once: true
-                })
-            }
-        })
-
-        // remove inert when closing modal with esc key
-        modal.addEventListener('keydown', (e) => {
-            // e.preventDefault();
-            let closestDialog = e.target.closest('dialog');
-            if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
-                console.log(e.target.nodeName);
-                closestDialog.setAttribute('hiding', '');
-                closestDialog.addEventListener('animationend', () => {
-                    closestDialog.close();
-                    closestDialog.removeAttribute('hiding');
-                    content.removeAttribute('inert');
-                }, {
-                    once: true
-                })
-
-            }
-        })
+        }
 
     })
 }
