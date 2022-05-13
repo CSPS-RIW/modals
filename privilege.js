@@ -18,7 +18,7 @@ const modals = () => {
     // TODO If a browser doesn't support the dialog, then hide the
     // dialog contents by default and add content modal content to div
     if (typeof dialog.showModal !== 'function') {
-        dialog.hidden = true;
+        dialog.classList.add('hidden');
         console.log('Update your browser for a more interactive experience');
 
     }
@@ -26,16 +26,22 @@ const modals = () => {
     modals.forEach((modal) => {
         triggerBtn.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
-                // if trigger's data-modal maches modal's id, open that one
-                if (e.target.getAttribute('data-modal') === modal.getAttribute('id')) {
-                    modal.setAttribute('showing', '');
-                    modal.showModal();
-                    modal.addEventListener('animationend', () => {
-                        modal.removeAttribute('showing');
-                        content.setAttribute('inert', 'true');
-                    }, {
-                        once: true
-                    })
+                if (typeof dialog.showModal === "function") {
+                    // if trigger's data-modal maches modal's id, open that one
+                    if (e.target.getAttribute('data-modal') === modal.getAttribute('id')) {
+                        modal.setAttribute('showing', '');
+                        modal.showModal();
+                        modal.addEventListener('animationend', () => {
+                            modal.removeAttribute('showing');
+                            content.setAttribute('inert', 'true');
+                        }, {
+                            once: true
+                        })
+                    }
+                } else {
+                    console.log('Update your browser for a more interactive experience');
+                    modals.hidden = true;
+
                 }
             })
         });
