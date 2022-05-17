@@ -13,7 +13,7 @@ class Loader {
 
         this.moveContent();
         this.initJsManager();
-        this.initCssManager();
+        // this.initCssManager();
     }
     /* *********************************************************************
      * GET DATA INFO

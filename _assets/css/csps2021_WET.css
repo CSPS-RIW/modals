@@ -850,7 +850,7 @@ a:active, a:hover, a:focus {
     transform: translateY(0%);
   }
 }
-@keyframes fielddown {
+@keyframes fieldup {
   0% {
     transform: translateY(0%);
   }
@@ -858,12 +858,12 @@ a:active, a:hover, a:focus {
     transform: translateY(-5%);
   }
 }
-@keyframes fieldup {
+@keyframes fielddown {
   0% {
-    transform: translateY(-5%);
+    transform: translateY(-150%);
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(-100%);
   }
 }
 @keyframes scaleout {
@@ -974,33 +974,6 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
     height: 11em;
   }
 }
-.privilege-activity .pa-content .pa-questions fieldset[slide-up] {
-  display: flex;
-  inset: 0;
-  animation: fadeout 550ms forwards, fieldup 500ms forwards;
-}
-@media (prefers-reduced-motion) {
-  .privilege-activity .pa-content .pa-questions fieldset[slide-up] {
-    animation: fadeout 550ms forwards;
-  }
-}
-.privilege-activity .pa-content .pa-questions fieldset[slide-down] {
-  display: flex;
-  inset: 0;
-  animation: fadein 550ms forwards, fielddown 500ms forwards;
-}
-.privilege-activity .pa-content .pa-questions fieldset[slide-down].input-label {
-  animation: fadein 550ms forwards;
-}
-@media (prefers-reduced-motion) {
-  .privilege-activity .pa-content .pa-questions fieldset[slide-down] {
-    animation: fadein 550ms forwards;
-  }
-}
-.privilege-activity .pa-content .pa-questions .input-label {
-  position: relative;
-  bottom: 40px;
-}
 @media (min-width: 992px) {
   .privilege-activity .pa-content .pa-questions {
     width: 100%;
@@ -1012,7 +985,7 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
   padding: 0 16px;
 }
 .privilege-activity .pa-content .pa-questions form fieldset {
-  height: 5rem;
+  height: 8rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1025,7 +998,7 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
 .privilege-activity .pa-content .pa-questions form fieldset[slide-down] {
   display: flex;
   inset: 0;
-  animation: fadein 550ms forwards, fieldup 500ms forwards;
+  animation: fadein 400ms forwards, fielddown 500ms forwards;
 }
 .privilege-activity .pa-content .pa-questions form fieldset:last-child {
   border-bottom: 0;
@@ -1312,12 +1285,42 @@ dialog .modal-header {
   -ms-flex-pack: center;
   justify-content: center;
 }
+dialog .modal-header h2, dialog .modal-header h3 {
+  flex-grow: 2;
+  margin-bottom: 0;
+}
 dialog .modal-header .close-modal {
+  outline: none;
+  border: none;
   color: #333;
-  margin: 0.25rem 0.25rem 0 0rem;
+  margin: 0.25rem 0.25rem 0 auto;
+  background-color: #fff;
+  padding: 0.25rem 1rem;
+  flex-shrink: 1;
+}
+dialog .modal-header .close-modal:focus, dialog .modal-header .close-modal:hover {
+  outline: 2px solid #333;
+}
+dialog .modal-content {
+  max-width: 80%;
+  width: 17em;
+}
+@media (min-width: 768px) {
+  dialog .modal-content {
+    width: 35em;
+  }
+}
+@media (min-width: 1200px) {
+  dialog .modal-content {
+    width: 60em;
+  }
 }
 dialog .modal-footer {
   justify-content: flex-start;
+}
+dialog .modal-footer .close-modal {
+  border: 1px solid #4e5b73;
+  color: opacity(1);
 }
 dialog[showing] {
   display: block;

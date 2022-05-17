@@ -14,8 +14,8 @@ $.each($('.component-sample'), function () {
     //var componentCode = componentCode.replace(/(?:\r\n|\r|\n)/gi, '');
     $(this).append(
         '<pre class="code-sample copy-this card bg-light"><code>' +
-            componentCode +
-            '</code></pre><p><button class="btn copy-btn" data-toggle="tooltip" data-placement="top" title="Copy Code To Clipboard">Copy Code</button></p>'
+        componentCode +
+        '</code></pre><p><button class="btn copy-btn" data-toggle="tooltip" data-placement="top" title="Copy Code To Clipboard">Copy Code</button></p>'
     );
 });
 
@@ -546,9 +546,9 @@ $.each($('.quick-assess-mc .form-check'), function (index, value) {
         });
     $(value).html(
         $(value)
-            .html()
-            .replace('[[Y]]', '<span class="fas fa-check ans-symbol invisible float-right"></span>')
-            .replace('[[N]]', '<span class="fas fa-times ans-symbol invisible float-right"></span>')
+        .html()
+        .replace('[[Y]]', '<span class="fas fa-check ans-symbol invisible float-right"></span>')
+        .replace('[[N]]', '<span class="fas fa-times ans-symbol invisible float-right"></span>')
     );
 });
 
@@ -599,9 +599,9 @@ $.each($('.quick-assess-ms .form-check'), function (index, value) {
         });
     $(value).html(
         $(value)
-            .html()
-            .replace('[[Y]]', '<span class="fas fa-check ans-symbol invisible float-right"></span>')
-            .replace('[[N]]', '<span class="fas fa-times ans-symbol invisible float-right"></span>')
+        .html()
+        .replace('[[Y]]', '<span class="fas fa-check ans-symbol invisible float-right"></span>')
+        .replace('[[N]]', '<span class="fas fa-times ans-symbol invisible float-right"></span>')
     );
 });
 
@@ -647,8 +647,8 @@ $.each($('.quick-assess-sa .shortanswer'), function (index, value) {
     var num = index + 1;
     $(value).html(
         $(value)
-            .html()
-            .replace(/\[\[BLANK\]\]/g, '<label  class="sr-only">your answer </label>')
+        .html()
+        .replace(/\[\[BLANK\]\]/g, '<label  class="sr-only">your answer </label>')
     );
     $(value)
         .find('label')
@@ -726,11 +726,11 @@ $.each($('.quick-assess-dd'), function (index, value) {
     /* Switching text wrapped with {{LABEL}} to label tag and creating drop down options from text with [[option1|option2|]] format*/
     $(value).html(
         $(value)
-            .html()
-            .replace(/\{\{/g, '<label>')
-            .replace(/\}\}/g, '</label>')
-            .replace(/\[\[/g, '<select class="options">')
-            .replace(/\]\]/g, '</select>')
+        .html()
+        .replace(/\{\{/g, '<label>')
+        .replace(/\}\}/g, '</label>')
+        .replace(/\[\[/g, '<select class="options">')
+        .replace(/\]\]/g, '</select>')
     );
     $(value)
         .find('select.options')
@@ -738,10 +738,10 @@ $.each($('.quick-assess-dd'), function (index, value) {
             var ddOptions = $(this).html().split('|');
             $(this).html(
                 '<option disabled="" selected="" value="">...</option>' +
-                    $.map(ddOptions, function (v) {
-                        return '<option>' + v + '</option>';
-                    }).join('') +
-                    ''
+                $.map(ddOptions, function (v) {
+                    return '<option>' + v + '</option>';
+                }).join('') +
+                ''
             );
         });
     /* Enable Button to Check Answer  */
@@ -905,8 +905,7 @@ $(document).ready(function () {
         });
         jQuery('.progress-arrow').on('click', function (event) {
             event.preventDefault();
-            jQuery('html, body').animate(
-                {
+            jQuery('html, body').animate({
                     scrollTop: 0,
                 },
                 duration
@@ -1018,7 +1017,7 @@ if (sortableListInput) {
     //insert list items into DOM
     function createList() {
         [...Rank]
-            .map((a) => ({
+        .map((a) => ({
                 value: a,
                 sort: Math.random(),
             }))
@@ -1164,7 +1163,7 @@ if (sortableListInput) {
 
     function arraysEqual(arr1, arr2) {
         if (arr1.length !== arr2.length) return false;
-        for (let i = arr1.length; i--; ) {
+        for (let i = arr1.length; i--;) {
             if (arr1[i] !== arr2[i]) return false;
         }
 

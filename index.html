@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="shortcut icon" href="/_assets/images/PNG/CSPS_EFPC_symbol_RGB_purple.png"
+        type="image/x-icon">
     <!-- preloaded D2L template to be changed -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
@@ -21,10 +22,14 @@
         id="D2L_style_bootstrap">
     <link rel="stylesheet" href="./_assets/css/csps2021_D2L.css" id="D2L_style_csps">
     <link rel="stylesheet" href="./_assets/css/csps2021_WET.css" />
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="./_assets/js/plugins/magnific-popup/magnific-popup.css">
+    <!-- RevealMore core CSS file -->
+    <!-- <link rel="stylesheet" href="./_assets/js/plugins/reveal-more/reveal-more.css" /> -->
     <!-- Template JavaScript -->
-    <script src="./scripts.min.js" defer></script>
+    <script src="./_assets/js/scripts.min.js" defer></script>
     <!-- preloaded D2L template to be changed -->
-    <script src="./loader.js" defer id="D2L_loader"></script>
+    <script src="./_assets/js/loader.js" defer id="D2L_loader"></script>
     <title>Custom Page</title>
 </head>
 
@@ -49,10 +54,10 @@
                                     <button id="updateDetails"
                                         class="btn btn-secondary trigger-btn"
                                         data-toggle="tooltip" data-placement="top"
-                                        title="What happened to Megan?"
-                                        data-modal="modal_1"></button>
+                                        title="Open Modal" data-modal="modal_1"> <span
+                                            class="wb-inv">What happened to Megan?</span>
+                                    </button>
                                     <div class="character megan">
-                                        <div class="wb-inv">Megan icon</div>
                                     </div>
                                 </div>
                                 <div class="figure-cont" data-pos="4"
@@ -60,10 +65,10 @@
                                     <button id="newBtn"
                                         class="btn btn-secondary trigger-btn"
                                         data-toggle="tooltip" data-placement="top"
-                                        title="What happened to Robert?"
-                                        data-modal="modal_2"></button>
+                                        title="Open Modal" data-modal="modal_2"><span
+                                            class="wb-inv">What happened to
+                                            Robert</span></button>
                                     <div class="character robert">
-                                        <div class="wb-inv">Robert icon</div>
                                     </div>
                                 </div>
                                 <div class="figure-cont" data-pos="7"
@@ -71,20 +76,21 @@
                                     <button id="newBtn2"
                                         class="btn btn-secondary trigger-btn"
                                         data-toggle="tooltip" data-placement="top"
-                                        title="What happened to Morena?"
-                                        data-modal="modal_3"></button>
+                                        title="Open Modal" data-modal="modal_3"><span
+                                            class="wb-inv">What happened to
+                                            Morena</span></button>
                                     <div class="character morena">
-                                        <div class="wb-inv">Morena icon</div>
+
                                     </div>
                                 </div>
                                 <div class="figure-cont" data-pos="2" data-persona="alex">
                                     <button id="newBtn3"
                                         class="btn btn-secondary trigger-btn"
                                         data-toggle="tooltip" data-placement="top"
-                                        title="What happened to Alex?"
-                                        data-modal="modal_4"></button>
+                                        title="Open Modal" data-modal="modal_4">
+                                        <span class="wb-inv">What happened to Alex</span>
+                                    </button>
                                     <div class="character alex">
-                                        <div class="wb-inv">Alex icon</div>
                                     </div>
                                 </div>
                             </div>
@@ -199,8 +205,8 @@
                                         <label for="pa-q11-yes">Next</label>
                                     </div>
                                 </fieldset>
-                                <fieldset data-last="true" class="hidden"
-                                    class="did-you-know did-you-know4">
+                                <fieldset data-last="true"
+                                    class="hidden did-you-know did-you-know4">
                                     <legend>11. I identify as a man.</legend>
                                     <div class="input-label">
                                         <input type="radio" name="pa-q12" class="insert4"
@@ -210,91 +216,95 @@
                                 </fieldset>
                             </form>
                         </div>
+                        <div class="description-text"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- END of content -->
+    </div>
     <!-- Modals -->
     <div class="modals">
-        <dialog id="modal_1" class="modal-1">
+        <dialog id="modal_1" class="modal-megan" data-step="0">
             <div class="modal-header">
-                <h2>Megan</h2>
+                <h2 class="add-title">Megan</h2>
                 <button title="Close overlay (escape key)" type="button"
-                    class="mfp-close close-modal">×</button>
+                    class="close-modal">×</button>
             </div>
             <div class="modal-body">
-                <p>You should be looking at Megan:</p>
+                <!-- <p>You should be looking at Megan:</p>
                 <img src="./_assets/images/SVG/megan-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;">
+                    style="height: 15em;position: relative;left: 30%;"> -->
             </div>
             <div class="modal-footer">
                 <button id="btn_close_1"
                     class="btn btn-secondary close-modal">Close</button>
             </div>
         </dialog>
-        <dialog id="modal_2" class="modal-2">
+        <dialog id="modal_2" class="modal-robert" data-step="0">
             <div class="modal-header">
-                <h2>Robert</h2>
+                <h2 class="add-title">Robert</h2>
                 <button title="Close overlay (escape key)" type="button"
-                    class="mfp-close close-modal">×</button>
+                    class="close-modal">×</button>
             </div>
             <div class="modal-body">
-                <p>You should be looking at Robert:</p>
+                <!-- <p>You should be looking at Robert:</p>
                 <img src="./_assets/images/SVG/robert-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;">
+                    style="height: 15em;position: relative;left: 30%;"> -->
             </div>
             <div class="modal-footer">
                 <button id="btn_close_2"
                     class="btn btn-secondary close-modal">Close</button>
             </div>
-            </form>
         </dialog>
-        <dialog id="modal_3" class="modal-1">
+        <dialog id="modal_3" class="modal-morena" data-step="0">
             <div class="modal-header">
-                <h2>Morena</h2>
+                <h2 class="add-title">Morena</h2>
                 <button title="Close overlay (escape key)" type="button"
-                    class="mfp-close close-modal">×</button>
+                    class="close-modal">×</button>
             </div>
             <div class="modal-body">
-                <p>You should be looking at Morena:</p>
+                <!-- <p>You should be looking at Morena:</p>
                 <img src="./_assets/images/SVG/morena-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;">
+                    style="height: 15em;position: relative;left: 30%;"> -->
             </div>
             <div class="modal-footer">
-                <button id="btn_close_1"
+                <button id="btn_close_modal_3"
                     class="btn btn-secondary close-modal">Close</button>
             </div>
         </dialog>
-        <dialog id="modal_4" class="modal-2">
+        <dialog id="modal_4" class="modal-alex" data-step="0">
             <div class="modal-header">
-                <h2>Alex</h2>
+                <h2 class="add-title">Alex</h2>
                 <button title="Close overlay (escape key)" type="button"
-                    class="mfp-close close-modal">×</button>
+                    class="close-modal">×</button>
             </div>
             <div class="modal-body">
-                <p>You should be looking at Alex:</p>
+                <!-- <p>You should be looking at Alex:</p>
                 <img src="./_assets/images/SVG/alex-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;">
+                    style="height: 15em;position: relative;left: 30%;"> -->
             </div>
             <div class="modal-footer">
-                <button id="btn_close_2"
+                <button id="btn_close_2_modal4"
                     class="btn btn-secondary close-modal">Close</button>
             </div>
-            </form>
         </dialog>
-    </div>
-
-    <!-- END of content -->
     </div>
     <!-- Bootstrap JavaScript: jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./_assets/thirdpartylib/jquery/jquery-3.4.1.min.js"></script>
     <script src="./_assets/thirdpartylib/popper-js/popper.min.js"></script>
     <script src="./_assets/thirdpartylib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-    <script src="./inert.js"></script>
+    <!-- Magnific Popup core JS file -->
+    <script src="./_assets/js/plugins/magnific-popup/jquery.magnific-popup.js">
+    </script>
+    <!-- RevealMore plugin -->
+    <script src="./_assets/js/plugins/reveal-more/jquery.reveal-more.js"></script>
+    <!-- Plugins js-->
+    <script src="./_assets/js/plugins.js"></script>
+    <script src="./_assets/js/inert.js"></script>
     <!-- GT's js -->
-    <script src="./privilege.js"></script>
+    <script src="./_assets/js/privilege.js"></script>
 </body>
 
 </html>
