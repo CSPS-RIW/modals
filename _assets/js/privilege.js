@@ -106,9 +106,8 @@ const modals = () => {
 const form = () => {
     'use strict';
     let lang = document.querySelector('html').getAttribute('lang');
-    // let pa = document.querySelector('.privilege-activity');
     let paResult = document.querySelector('.pa-result');
-    // let nbQuestions = pa.find('fieldset');
+    let triggerBtnForm = document.querySelectorAll('.trigger-btn');
     let allQuestions = document.querySelectorAll('fieldset');
     let newQuestArr = [];
 
@@ -243,8 +242,6 @@ const form = () => {
         }
     }
 
-
-
     Array.from(allQuestions, (question) => {
         newQuestArr.push(question);
     })
@@ -262,6 +259,13 @@ const form = () => {
                 // Add focus to top of img to allow kb users 
                 // interact with dialogs
                 paResult.focus();
+                // show modal btns
+                // TODO add fadein animation
+                triggerBtnForm.forEach(button => {
+                    button.classList.contains('hidden') ?
+                        button.classList.remove('hidden') : '';
+                });
+                console.log(triggerBtnForm)
 
                 createModalContent();
 
