@@ -48,8 +48,8 @@ const modals = () => {
                 button.addEventListener('click', (e) => {
                     let closestDialog = e.target.closest('dialog');
                     // Animate closing modals
-                    closestDialog.setAttribute('hiding', '');
                     content.removeAttribute('inert');
+                    closestDialog.setAttribute('hiding', '');
                     closestDialog.addEventListener('animationend', () => {
                         closestDialog.close();
                         closestDialog.removeAttribute('hiding');
@@ -63,8 +63,8 @@ const modals = () => {
                 let closestDialog = e.target.closest('dialog');
                 // e.target.nodeName === 'DIALOG' ? modal.close() : '';
                 if (e.target.nodeName === 'DIALOG') {
-                    closestDialog.setAttribute('hiding', '');
                     content.removeAttribute('inert');
+                    closestDialog.setAttribute('hiding', '');
                     closestDialog.addEventListener('animationend', () => {
                         closestDialog.close();
                         closestDialog.removeAttribute('hiding');
@@ -109,13 +109,24 @@ const form = () => {
     let paResult = document.querySelector('.pa-result');
     let triggerBtnForm = document.querySelectorAll('.trigger-btn');
     let allQuestions = document.querySelectorAll('fieldset');
+    let characterPositions = document.querySelectorAll('.figure-cont');
     let newQuestArr = [];
 
     const characterObj = {
         Megan: {
             id: 1,
             name: 'Megan',
-            positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            // positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            positions: {
+                '1': 4,
+                '2': 3,
+                '3': 4,
+                '4': 3,
+                '5': 2,
+                '6': 1,
+                '7': 2,
+                '8': 3,
+            },
             updatesEn: [
                 'Megan went back because 3',
                 'Megan went back because 2',
@@ -126,7 +137,7 @@ const form = () => {
                 'Megan went forwards because 5',
                 'Megan went forwards because 6',
             ],
-            resultEn: 'Megan ended in 6',
+            resultEn: 'Megan ended in 3',
             updatesFr: [
                 'FR Megan went back because 3',
                 'FR Megan went back because 2',
@@ -142,7 +153,17 @@ const form = () => {
         Robert: {
             id: 2,
             name: 'Robert',
-            positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            // positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            positions: {
+                '1': 6,
+                '2': 5,
+                '3': 4,
+                '4': 3,
+                '5': 4,
+                '6': 3,
+                '7': 2,
+                '8': 1,
+            },
             updatesEn: [
                 'Robert went back because 3',
                 'Robert went back because 2',
@@ -169,7 +190,17 @@ const form = () => {
         Morena: {
             id: 3,
             name: 'Morena',
-            positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            // positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            positions: {
+                '1': 6,
+                '2': 5,
+                '3': 6,
+                '4': 5,
+                '5': 6,
+                '6': 5,
+                '7': 6,
+                '8': 7,
+            },
             updatesEn: [
                 'Morena went back because 3',
                 'Morena went back because 2',
@@ -196,7 +227,17 @@ const form = () => {
         Alex: {
             id: 4,
             name: 'Alex',
-            positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            // positions: [3, 2, 3, 2, 3, 4, 5, 6],
+            positions: {
+                '1': 6,
+                '2': 7,
+                '3': 6,
+                '4': 7,
+                '5': 8,
+                '6': 8,
+                '7': 7,
+                '8': 6,
+            },
             updatesEn: [
                 'Alex went back because 3',
                 'Alex went back because 2',
@@ -240,14 +281,29 @@ const form = () => {
             });
             c++;
         }
-    }
+    };
+
+    // Change persona position based on position index in characterObj
+    let i = 1;
+    const changePosition = () => {
+        for (let character in characterObj) {
+            let currentChar = characterObj[character];
+            characterPositions.forEach((personaPosition) => {
+                let persona = personaPosition.getAttribute('data-persona');
+                if (persona === currentChar.name.toLowerCase()) {
+                    personaPosition.setAttribute('data-pos', currentChar.positions[i])
+                }
+            })
+        }
+        i++;
+
+    };
 
     Array.from(allQuestions, (question) => {
         newQuestArr.push(question);
     })
     newQuestArr.forEach((question, index) => {
         question.addEventListener('change', () => {
-            // TODO Show modal btn after first cickps
             let nextField = question.nextElementSibling;
             let currentField = question;
             if (!newQuestArr[index].hasAttribute('data-last')) {
@@ -260,15 +316,20 @@ const form = () => {
                 // interact with dialogs
                 paResult.focus();
                 // show modal btns
-                // TODO add fadein animation
                 triggerBtnForm.forEach(button => {
-                    button.classList.contains('hidden') ?
-                        button.classList.remove('hidden') : '';
+                    if (button.classList.contains('hidden')) {
+                        button.classList.remove('hidden');
+                        button.setAttribute('showing', '');
+                        button.addEventListener('animationend', () => {
+                            button.removeAttribute('showing');
+                        }, {
+                            once: true
+                        })
+                    };
                 });
-                console.log(triggerBtnForm)
 
                 createModalContent();
-
+                changePosition();
                 setTimeout(() => {
                     nextField.classList.remove('hidden');
                     currentField.classList.add('hidden');
@@ -286,7 +347,7 @@ const form = () => {
             } else {
                 // TODO if it is the last fieldset, don't add class hidden
 
-                alert('last')
+                console.log('last')
             }
 
         })
