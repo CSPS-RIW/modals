@@ -17,9 +17,22 @@ const modals = () => {
     let modals = document.querySelectorAll('dialog');
     let content = document.querySelector('.D2L-template-layout');
 
+    const closeModal = (e) => {
+        let closestDialog = e.target.closest('dialog');
+        // Animate closing modals
+        content.removeAttribute('inert');
+        closestDialog.setAttribute('hiding', '');
+        closestDialog.addEventListener('animationend', () => {
+            closestDialog.close();
+            closestDialog.removeAttribute('hiding');
+        }, {
+            once: true
+        })
+    }
+
     if (typeof dialog.showModal !== 'function') {
         modals.hidden === true;
-        console.log('Update your browser for a more interactive experience');
+        console.error('Update your browser for a more interactive experience');
     }
 
     modals.forEach((modal) => {
@@ -46,49 +59,20 @@ const modals = () => {
             // Close modals
             closeBtns.forEach(button => {
                 button.addEventListener('click', (e) => {
-                    let closestDialog = e.target.closest('dialog');
-                    // Animate closing modals
-                    content.removeAttribute('inert');
-                    closestDialog.setAttribute('hiding', '');
-                    closestDialog.addEventListener('animationend', () => {
-                        closestDialog.close();
-                        closestDialog.removeAttribute('hiding');
-                    }, {
-                        once: true
-                    })
+                    closeModal(e);
                 });
             });
             // Close modal w/ backdrop
             modal.addEventListener('click', (e) => {
-                let closestDialog = e.target.closest('dialog');
-                // e.target.nodeName === 'DIALOG' ? modal.close() : '';
                 if (e.target.nodeName === 'DIALOG') {
-                    content.removeAttribute('inert');
-                    closestDialog.setAttribute('hiding', '');
-                    closestDialog.addEventListener('animationend', () => {
-                        closestDialog.close();
-                        closestDialog.removeAttribute('hiding');
-                    }, {
-                        once: true
-                    })
+                    closeModal(e);
                 }
             })
 
             // remove inert when closing modal with esc key
             modal.addEventListener('keydown', (e) => {
-                // e.preventDefault();
-                let closestDialog = e.target.closest('dialog');
                 if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
-                    console.log(e.target.nodeName);
-                    closestDialog.setAttribute('hiding', '');
-                    content.removeAttribute('inert');
-
-                    closestDialog.addEventListener('animationend', () => {
-                        closestDialog.close();
-                        closestDialog.removeAttribute('hiding');
-                    }, {
-                        once: true
-                    })
+                    closeModal(e);
 
                 }
             })
@@ -96,7 +80,7 @@ const modals = () => {
             // TODO If a browser doesn't support the dialog, then hide the
             // dialog contents by default and add content modal content to div
             console.warn('Update your browser for a more interactive experience');
-            modal.hidden = true;
+            modal.hidden = true; //  delete instead of hiding them
 
         }
 
@@ -110,6 +94,9 @@ const form = () => {
     let triggerBtnForm = document.querySelectorAll('.trigger-btn');
     let allQuestions = document.querySelectorAll('fieldset');
     let characterPositions = document.querySelectorAll('.figure-cont');
+    let form = document.querySelector('form');
+    let summaryArea = document.querySelector('.pa-questions');
+    let dataPosIndx = 1;
     let newQuestArr = [];
 
     const characterObj = {
@@ -137,7 +124,6 @@ const form = () => {
                 'Megan went forwards because 5',
                 'Megan went forwards because 6',
             ],
-            resultEn: 'Megan ended in 3',
             updatesFr: [
                 'FR Megan went back because 3',
                 'FR Megan went back because 2',
@@ -174,7 +160,6 @@ const form = () => {
                 'Robert went forwards because 5',
                 'Robert went forwards because 6',
             ],
-            resultEn: 'Robert ended in 6',
             updatesFr: [
                 'FR Robert went back because 3',
                 'FR Robert went back because 2',
@@ -211,7 +196,6 @@ const form = () => {
                 'Morena went forwards because 5',
                 'Morena went forwards because 6',
             ],
-            resultEn: 'Morena ended in 6',
             updatesFr: [
                 'FR Morena went back because 3',
                 'FR Morena went back because 2',
@@ -222,7 +206,6 @@ const form = () => {
                 'FR Morena went forwards because 5',
                 'FR Morena went forwards because 6',
             ],
-            resultFr: 'Results fr',
         },
         Alex: {
             id: 4,
@@ -248,7 +231,6 @@ const form = () => {
                 'Alex went forwards because 5',
                 'Alex went forwards because 6',
             ],
-            resultEn: 'Alex ended in 6',
             updatesFr: [
                 'FR Alex went back because 3',
                 'FR Alex went back because 2',
@@ -259,7 +241,6 @@ const form = () => {
                 'FR Alex went forwards because 5',
                 'FR Alex went forwards because 6',
             ],
-            resultFr: 'Results fr',
         }
     }
 
@@ -284,20 +265,57 @@ const form = () => {
     };
 
     // Change persona position based on position index in characterObj
-    let i = 1;
     const changePosition = () => {
         for (let character in characterObj) {
             let currentChar = characterObj[character];
             characterPositions.forEach((personaPosition) => {
                 let persona = personaPosition.getAttribute('data-persona');
                 if (persona === currentChar.name.toLowerCase()) {
-                    personaPosition.setAttribute('data-pos', currentChar.positions[i])
+                    personaPosition.setAttribute('data-pos', currentChar.positions[dataPosIndx])
                 }
             })
         }
-        i++;
+        dataPosIndx++;
 
     };
+
+    const lastPosition = () => {
+        dataPosIndx = 8;
+        for (let character in characterObj) {
+            let currentChar = characterObj[character];
+            characterPositions.forEach((personaPosition) => {
+                let persona = personaPosition.getAttribute('data-persona');
+                if (persona === currentChar.name.toLowerCase()) {
+                    personaPosition.setAttribute('data-pos', currentChar.positions[dataPosIndx])
+                }
+            })
+        }
+    }
+
+    // Display message with where the characters ended
+    const resultSummary = () => {
+        let newSummaryArea = document.createElement('div');
+        let i = 1;
+        newSummaryArea.classList.add('summary-content');
+        summaryArea.insertAdjacentElement('beforeend', newSummaryArea);
+        for (let character in characterObj) {
+            let currChar = characterObj[character];
+            if (lang !== 'fr') {
+                // English content
+                let newParagraph = document.createElement('p');
+                newParagraph.classList.add(`summary-item-${i}`);
+                newParagraph.innerText = `${currChar.name} ended in position ${currChar.positions[8]}.`;
+                newSummaryArea.insertAdjacentElement('beforeend', newParagraph);
+            } else {
+                // French content
+                let newParagraph = document.createElement('p');
+                newParagraph.classList.add(`summary-item-${i}`);
+                newParagraph.innerText = `${currChar.name} a terminé en position ${currChar.positions[8]}.`;
+                newSummaryArea.insertAdjacentElement('beforeend', newParagraph);
+            }
+            i++;
+        }
+    }
 
     Array.from(allQuestions, (question) => {
         newQuestArr.push(question);
@@ -345,9 +363,11 @@ const form = () => {
                 // console.log(counter)
 
             } else {
-                // TODO if it is the last fieldset, don't add class hidden
+                // TODO add results
+                form.remove();
+                lastPosition();
+                resultSummary();
 
-                console.log('last')
             }
 
         })
