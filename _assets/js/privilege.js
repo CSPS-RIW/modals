@@ -98,7 +98,7 @@ const modals = () => {
             });
 
         } else {
-            modal.hidden = true;
+            modal.remove();
         }
 
     })
