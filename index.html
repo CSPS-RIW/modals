@@ -17,6 +17,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="./_assets/css/styles.min.css" />
     <link rel="stylesheet" href="./_assets/css/csps2021_D2L.css" />
+    <link rel="stylesheet" href="./_assets/css/chat-bubble.css" />
     <link rel="stylesheet"
         href="./_assets/thirdpartylib/bootstrap-4.3.1/css/bootstrap.min.css"
         id="D2L_style_bootstrap">
@@ -37,61 +38,40 @@
     data-theme="csps2021">
     <div class='D2L-template-layout d2l-frame-1'>
         <!-- ADD your content here -->
-        <h1>New Activity</h1>
+        <h1>Privilege Activity</h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="privilege-activity pa-theme-a">
-                    <div class="input-icon">
-                        <p class="icon icon-click">
-                            Click through the statements below to reflect on how each of
-                            these statements has an impact on each of the guides’ level of
-                            privilege.
-                        </p>
-                    </div>
+                    <p class="icon icon-click outside">In this activity, the course guides
+                        will be
+                        do a privilege walk. They will either step forward, or backwards,
+                        in response to the statements presented about their lived
+                        experiences.</p>
+                    <p>Click through the statements to see how they impact their levels of
+                        privilege. If you’d like a reminder, <a href="#"
+                            class="trigger-modal" data-modal="modal_1">click here</a> to
+                        review the descriptions
+                        of each guide.</p>
                     <div class="pa-content">
                         <div class="pa-result" tabindex="-1">
                             <div class="pa-figure">
-                                <div class="figure-cont" data-pos="5"
+                                <div class="figure-cont" data-pos="0"
                                     data-persona="megan">
-                                    <button id="updateDetails"
-                                        class="btn btn-secondary trigger-btn hidden"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="Open Modal" data-modal="modal_1"> <span
-                                            class="wb-inv">What happened to Megan?</span>
-                                    </button>
                                     <div class="character megan">
                                     </div>
                                 </div>
-                                <div class="figure-cont" data-pos="5"
+                                <div class="figure-cont" data-pos="0"
                                     data-persona="robert">
-                                    <button id="newBtn"
-                                        class="btn btn-secondary trigger-btn hidden"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="Open Modal" data-modal="modal_2"><span
-                                            class="wb-inv">What happened to
-                                            Robert</span></button>
                                     <div class="character robert">
                                     </div>
                                 </div>
-                                <div class="figure-cont" data-pos="5"
+                                <div class="figure-cont" data-pos="0"
                                     data-persona="morena">
-                                    <button id="newBtn2"
-                                        class="btn btn-secondary trigger-btn hidden"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="Open Modal" data-modal="modal_3"><span
-                                            class="wb-inv">What happened to
-                                            Morena</span></button>
                                     <div class="character morena">
 
                                     </div>
                                 </div>
-                                <div class="figure-cont" data-pos="5" data-persona="alex">
-                                    <button id="newBtn3"
-                                        class="btn btn-secondary trigger-btn hidden"
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="Open Modal" data-modal="modal_4">
-                                        <span class="wb-inv">What happened to Alex</span>
-                                    </button>
+                                <div class="figure-cont" data-pos="0" data-persona="alex">
                                     <div class="character alex">
                                     </div>
                                 </div>
@@ -195,67 +175,72 @@
     </div>
     <!-- Modals -->
     <div class="modals">
-        <dialog id="modal_1" class="modal-megan" data-step="0">
+        <dialog id="modal_1" class="modal-megan">
             <div class="modal-header">
-                <h2 class="add-title">Megan</h2>
+                <h2 class="add-title">Guide introductions</h2>
                 <button title="Close overlay (escape key)" type="button"
                     class="close-modal">×</button>
             </div>
             <div class="modal-body">
-                <!-- <p>You should be looking at Megan:</p>
-                <img src="./_assets/images/SVG/megan-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;"> -->
+                <div class="char-cont-modal">
+                    <!-- First persona -->
+                    <div class="chat-container grey left">
+                        <div class="persona megan"></div>
+                        <p class="chat-bubble">
+                            Hi! I’m Megan. I’m a daughter, a woman, and a public servant.
+                            I’m also First Nation Cree from treaty Six territory and I’ve
+                            been working with the federal public service for five years.
+                            In my off time, I love to listen to music and attend live
+                            music events. I’m also a lesbian and my fiancé and I are in
+                            the process of planning our wedding. We are both very excited!
+                        </p>
+                    </div>
+                    <!-- Second Persona -->
+                    <div class="chat-container blue right">
+                        <div class="persona robert"></div>
+                        <p class="chat-bubble">
+                            Hi, I’m Robert. I am a third-generation Black Canadian man and
+                            I’ve been working with the Federal government for a few years.
+                            I’ve been enjoying my career for the most part, however, I
+                            have experienced some barriers related to my dyslexia and more
+                            recently, my anxiety. I’ve also simultaneously experienced
+                            racism, which has made it more difficult for me. I am an avid
+                            birdwatcher and am a yearly contributor to the backyard bird
+                            count.
+                        </p>
+                    </div>
+                    <!-- Third persona -->
+                    <div class="chat-container blue left">
+                        <div class="persona morena"></div>
+                        <p class="chat-bubble">
+                            Hello, I’m Morena! I’m a mixed-race cisgender woman of
+                            European and Central American descent. I grew up and lived in
+                            Honduras, and I moved to Canada after completing my Master's
+                            degree. I have been working as an administrative clerk for the
+                            last two years and am looking for opportunities to progress in
+                            my career. I was one of the fastest sprinters in my country
+                            growing up and I still compete.
+                        </p>
+                    </div>
+                    <!-- Fourth Persona -->
+                    <div class="chat-container grey  right">
+                        <div class="persona alex"></div>
+                        <p class="chat-bubble">
+                            Hello, my name is Alex. I am a white man of European decent
+                            who was recently diagnosed with a mental illness. I am an
+                            analyst in the federal public service and I love working on
+                            briefing notes and providing strategic advice – I enjoy
+                            telling good stories. It has been a little more difficult for
+                            me in the past few months as I had to take some time off due
+                            to my mental illness. I enjoy writing poetry and I have
+                            recited my work at several local events.
+                        </p>
+                    </div>
+
+                </div>
             </div>
             <div class="modal-footer">
                 <button id="btn_close_1"
-                    class="btn btn-secondary close-modal">Close</button>
-            </div>
-        </dialog>
-        <dialog id="modal_2" class="modal-robert" data-step="0">
-            <div class="modal-header">
-                <h2 class="add-title">Robert</h2>
-                <button title="Close overlay (escape key)" type="button"
-                    class="close-modal">×</button>
-            </div>
-            <div class="modal-body">
-                <!-- <p>You should be looking at Robert:</p>
-                <img src="./_assets/images/SVG/robert-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;"> -->
-            </div>
-            <div class="modal-footer">
-                <button id="btn_close_2"
-                    class="btn btn-secondary close-modal">Close</button>
-            </div>
-        </dialog>
-        <dialog id="modal_3" class="modal-morena" data-step="0">
-            <div class="modal-header">
-                <h2 class="add-title">Morena</h2>
-                <button title="Close overlay (escape key)" type="button"
-                    class="close-modal">×</button>
-            </div>
-            <div class="modal-body">
-                <!-- <p>You should be looking at Morena:</p>
-                <img src="./_assets/images/SVG/morena-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;"> -->
-            </div>
-            <div class="modal-footer">
-                <button id="btn_close_modal_3"
-                    class="btn btn-secondary close-modal">Close</button>
-            </div>
-        </dialog>
-        <dialog id="modal_4" class="modal-alex" data-step="0">
-            <div class="modal-header">
-                <h2 class="add-title">Alex</h2>
-                <button title="Close overlay (escape key)" type="button"
-                    class="close-modal">×</button>
-            </div>
-            <div class="modal-body">
-                <!-- <p>You should be looking at Alex:</p>
-                <img src="./_assets/images/SVG/alex-sm.svg" alt=""
-                    style="height: 15em;position: relative;left: 30%;"> -->
-            </div>
-            <div class="modal-footer">
-                <button id="btn_close_2_modal4"
                     class="btn btn-secondary close-modal">Close</button>
             </div>
         </dialog>

@@ -1,0 +1,116 @@
+/* **************************************************
+ * Color scheme
+ * *************************************************/
+/* **************************************************
+  * default colors
+  * *************************************************/
+/* **************************************************
+* BUTTONS
+* *************************************************/
+/* **************************************************
+  * BLOCKQUOTES
+  * *************************************************/
+/* **************************************************
+    * LISTS
+    * *************************************************/
+/* **************************************************
+* BANNER
+* *************************************************/
+/* **************************************************
+* JUMBOTRON
+* *************************************************/
+/* **************************************************
+* PANELS
+* *************************************************/
+/* **************************************************
+* TABLES
+* *************************************************/
+/* **************************************************
+* ACCORDIONS
+* *************************************************/
+/* **************************************************
+* CARDS
+* *************************************************/
+/* **************************************************
+* TABS
+* *************************************************/
+.chat-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2em;
+}
+.chat-container .persona {
+  height: 6em;
+  width: 5em;
+  background-size: 4em;
+}
+.chat-container .persona.megan {
+  background: url(https://app.csps-efpc.gc.ca//content/enforced/9301-INC118-DEV-EN/inc118-custom/_assets/images/SVG/megan-sm.svg) no-repeat center;
+}
+.chat-container .persona.robert {
+  background: url(https://app.csps-efpc.gc.ca//content/enforced/9301-INC118-DEV-EN/inc118-custom/_assets/images/SVG/robert-sm.svg) no-repeat center;
+}
+.chat-container .persona.morena {
+  background: url(https://app.csps-efpc.gc.ca//content/enforced/9301-INC118-DEV-EN/inc118-custom/_assets/images/SVG/morena-sm.svg) no-repeat center;
+}
+.chat-container .persona.alex {
+  background: url(https://app.csps-efpc.gc.ca//content/enforced/9301-INC118-DEV-EN/inc118-custom/_assets/images/SVG/alex-sm.svg) no-repeat center;
+}
+.chat-container p.chat-bubble {
+  position: relative;
+  height: auto;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 0 0 0 1em;
+}
+@media (min-width: 768px) {
+  .chat-container p.chat-bubble {
+    margin: 1rem 0;
+  }
+}
+.chat-container.grey p.chat-bubble {
+  background-color: #ededed;
+  color: #333;
+}
+.chat-container.grey p.chat-bubble::before {
+  border-left: 10px solid #ededed;
+  border-right: 10px solid #0000;
+  border-top: 10px solid #ededed;
+  border-bottom: 10px solid #0000;
+}
+.chat-container.blue p.chat-bubble {
+  background-color: #2F4A79;
+  color: #fff;
+}
+.chat-container.blue p.chat-bubble::before {
+  border-left: 10px solid #2F4A79;
+  border-right: 10px solid #0000;
+  border-top: 10px solid #2F4A79;
+  border-bottom: 10px solid #0000;
+}
+.chat-container.left p.chat-bubble::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: -8px;
+  bottom: 74px;
+  transform: rotate(-50deg);
+}
+.chat-container.right p.chat-bubble::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  right: -9px;
+  bottom: 46px;
+  transform: rotate(135deg);
+}
+.chat-container.right .persona {
+  order: 2;
+  transform: rotateY(180deg);
+}
+
+/*# sourceMappingURL=chat-bubble.css.map */

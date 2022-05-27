@@ -11,11 +11,14 @@ const init = () => {
 }
 
 const modals = () => {
-    let triggerBtn = document.querySelectorAll('.trigger-btn');
+    let triggerModal = document.querySelectorAll('.trigger-modal');
     let closeBtns = document.querySelectorAll('.close-modal');
     let dialog = document.querySelector('dialog');
     let modals = document.querySelectorAll('dialog');
     let content = document.querySelector('.D2L-template-layout');
+    let linkToReplace = document.querySelector('.trigger-modal[data-modal="modal_1"]');
+
+    console.log(linkToReplace);
 
     const closeModal = (e) => {
         let closestDialog = e.target.closest('dialog');
@@ -31,16 +34,22 @@ const modals = () => {
     }
 
     if (typeof dialog.showModal !== 'function') {
-        modals.hidden === true;
-        console.error('Update your browser for a more interactive experience');
+        // TODO If a browser doesn't support the dialog, then hide the
+        // dialog contents by default and add content modal content to div
+        console.warn('Update your browser for a more interactive experience');
+        modals.hidden = true;
+        linkToReplace.classList.add('.replaced-link');
+        linkToReplace.classList.add('.new-window');
+        linkToReplace.href = "https://app.csps-efpc.gc.ca/d2l/le/lessons/9301/topics/35138";
+        linkToReplace.classList.remove('.trigger-modal');
     }
 
     modals.forEach((modal) => {
         if (typeof dialog.showModal === "function") {
 
-            triggerBtn.forEach(trigger => {
+            triggerModal.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
-
+                    e.preventDefault();
                     // if trigger's data-modal maches modal's id, open that one
                     if (e.target.getAttribute('data-modal') === modal.getAttribute('id')) {
                         modal.setAttribute('showing', '');
@@ -76,12 +85,6 @@ const modals = () => {
 
                 }
             })
-        } else {
-            // TODO If a browser doesn't support the dialog, then hide the
-            // dialog contents by default and add content modal content to div
-            console.warn('Update your browser for a more interactive experience');
-            modal.hidden = true; //  delete instead of hiding them
-
         }
 
     })
@@ -91,7 +94,7 @@ const form = () => {
     'use strict';
     let lang = document.querySelector('html').getAttribute('lang');
     let paResult = document.querySelector('.pa-result');
-    let triggerBtnForm = document.querySelectorAll('.trigger-btn');
+    let triggerModalForm = document.querySelectorAll('.trigger-btn');
     let allQuestions = document.querySelectorAll('fieldset');
     let characterPositions = document.querySelectorAll('.figure-cont');
     let form = document.querySelector('form');
@@ -244,25 +247,6 @@ const form = () => {
         }
     }
 
-    const createModalContent = () => {
-        // TODO if data pos === p, show new update message
-        let c = 1; // Count
-        let p = 0; // Position
-        for (const character in characterObj) {
-            let dialog = '';
-            let dialogBody = document.querySelectorAll(`#modal_${c} .modal-body`);
-            dialogBody.forEach(content => {
-                dialog += `<img src="./_assets/images/SVG/${characterObj[character].name.toLowerCase()}-sm.svg" alt="" style="height: 15em;position: relative;left: 30%;">`;
-                if (lang !== 'fr') {
-                    dialog += `<p>${characterObj[character].updatesEn[p]}</p>`;
-                } else {
-                    dialog += `<p>${characterObj[character].updatesFr[p]}</p>`;
-                }
-                content.innerHTML = dialog;
-            });
-            c++;
-        }
-    };
 
     // Change persona position based on position index in characterObj
     const changePosition = () => {
@@ -291,7 +275,7 @@ const form = () => {
             })
         }
     }
-
+    // TODO Add focus to newSummaryArea when it first appear so screen reader reads it?
     // Display message with where the characters ended
     const resultSummary = () => {
         let newSummaryArea = document.createElement('div');
@@ -334,7 +318,7 @@ const form = () => {
                 // interact with dialogs
                 paResult.focus();
                 // show modal btns
-                triggerBtnForm.forEach(button => {
+                triggerModalForm.forEach(button => {
                     if (button.classList.contains('hidden')) {
                         button.classList.remove('hidden');
                         button.setAttribute('showing', '');
@@ -346,7 +330,6 @@ const form = () => {
                     };
                 });
 
-                createModalContent();
                 changePosition();
                 setTimeout(() => {
                     nextField.classList.remove('hidden');
