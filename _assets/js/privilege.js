@@ -39,6 +39,7 @@ const modals = () => {
         console.warn('Update your browser for a more interactive experience');
         linkToReplace.classList.add('replaced-link');
         linkToReplace.classList.add('new-window');
+        linkToReplace.setAttribute('target', '_blank');
         linkToReplace.href = "https://app.csps-efpc.gc.ca/d2l/le/lessons/9301/topics/35138";
         linkToReplace.classList.remove('trigger-modal');
         linkToReplace.removeAttribute('data-modal');
