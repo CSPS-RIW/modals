@@ -18,8 +18,6 @@ const modals = () => {
     let content = document.querySelector('.D2L-template-layout');
     let linkToReplace = document.querySelector('.trigger-modal[data-modal="modal_1"]');
 
-    console.log(linkToReplace);
-
     const closeModal = (e) => {
         let closestDialog = e.target.closest('dialog');
         // Animate closing modals
@@ -33,6 +31,8 @@ const modals = () => {
         })
     }
 
+    // Prevent inert from staying open
+
     if (typeof dialog.showModal !== 'function') {
         // TODO If a browser doesn't support the dialog, then hide the
         // dialog contents by default and add content modal content to div
@@ -40,6 +40,7 @@ const modals = () => {
         linkToReplace.classList.add('replaced-link');
         linkToReplace.classList.add('new-window');
         linkToReplace.setAttribute('target', '_blank');
+        linkToReplace.setAttribute('title', 'Opens in a new window/tab');
         linkToReplace.href = "https://app.csps-efpc.gc.ca/d2l/le/lessons/9301/topics/35138";
         linkToReplace.classList.remove('trigger-modal');
         linkToReplace.removeAttribute('data-modal');
@@ -70,22 +71,32 @@ const modals = () => {
             closeBtns.forEach(button => {
                 button.addEventListener('click', (e) => {
                     closeModal(e);
+
                 });
             });
             // Close modal w/ backdrop
             modal.addEventListener('click', (e) => {
                 if (e.target.nodeName === 'DIALOG') {
                     closeModal(e);
+
                 }
-            })
+            });
+
+            // Fix bug #5373 remove inert when closing modal with esc key
+            document.addEventListener('keydown', (e) => {
+                if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
+                    content.removeAttribute('inert');
+                    // closeModal(e);
+                }
+            });
 
             // remove inert when closing modal with esc key
             modal.addEventListener('keydown', (e) => {
                 if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
                     closeModal(e);
-
                 }
-            })
+            });
+
         } else {
             modal.hidden = true;
         }
