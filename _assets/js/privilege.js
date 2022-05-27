@@ -38,10 +38,10 @@ const modals = () => {
         // dialog contents by default and add content modal content to div
         console.warn('Update your browser for a more interactive experience');
         modals.hidden = true;
-        linkToReplace.classList.add('.replaced-link');
-        linkToReplace.classList.add('.new-window');
+        linkToReplace.classList.add('replaced-link');
+        linkToReplace.classList.add('new-window');
         linkToReplace.href = "https://app.csps-efpc.gc.ca/d2l/le/lessons/9301/topics/35138";
-        linkToReplace.classList.remove('.trigger-modal');
+        linkToReplace.classList.remove('trigger-modal');
     }
 
     modals.forEach((modal) => {
