@@ -34,8 +34,8 @@ const modals = () => {
     // Prevent inert from staying open
 
     if (typeof dialog.showModal !== 'function') {
-        // TODO If a browser doesn't support the dialog, then hide the
-        // dialog contents by default and add content modal content to div
+        //  If a browser doesn't support the dialog, remove it and make it a link
+        let linkToReplace = document.querySelector('.trigger-modal[data-modal="modal_1"]');
         console.warn('Update your browser for a more interactive experience');
         linkToReplace.classList.add('replaced-link');
         linkToReplace.classList.add('new-window');
@@ -45,6 +45,7 @@ const modals = () => {
         linkToReplace.classList.remove('trigger-modal');
         linkToReplace.removeAttribute('data-modal');
     }
+
 
     modals.forEach((modal) => {
         if (typeof dialog.showModal === "function") {
@@ -92,8 +93,22 @@ const modals = () => {
 
             // remove inert when closing modal with esc key
             modal.addEventListener('keydown', (e) => {
+                let mBody = modal.querySelector('.modal-body');
                 if ((e.key == 'Escape' || e.key == 'Esc' || e.code == 27)) {
                     closeModal(e);
+                }
+                // control sclolling inside a  modal
+                if ((e.key === 'ArrowDown' || e.key == 'down arrow' || e.code === 40 || e.key === 's' || e.code === 83)) {
+                    mBody.scrollBy({
+                        top: 100,
+                        behavior: 'smooth'
+                    });
+                }
+                if ((e.key === 'ArrowUp' || e.key == 'up arrow' || e.code === 38 || e.key === 'w' || e.code === 87)) {
+                    mBody.scrollBy({
+                        top: -100,
+                        behavior: 'smooth'
+                    })
                 }
             });
 
@@ -122,35 +137,15 @@ const form = () => {
             name: 'Megan',
             // positions: [3, 2, 3, 2, 3, 4, 5, 6],
             positions: {
-                '1': 4,
-                '2': 3,
-                '3': 4,
-                '4': 3,
-                '5': 2,
+                '1': 0,
+                '2': 0,
+                '3': 1,
+                '4': 1,
+                '5': 1,
                 '6': 1,
                 '7': 2,
                 '8': 3,
             },
-            updatesEn: [
-                'Megan went back because 3',
-                'Megan went back because 2',
-                'Megan went forwards because 3',
-                'Megan went back because 2',
-                'Megan went forwards because 3',
-                'Megan went forwards because 4',
-                'Megan went forwards because 5',
-                'Megan went forwards because 6',
-            ],
-            updatesFr: [
-                'FR Megan went back because 3',
-                'FR Megan went back because 2',
-                'FR Megan went forwards because 3',
-                'FR Megan went back because 2',
-                'FR Megan went forwards because 3',
-                'FR Megan went forwards because 4',
-                'FR Megan went forwards because 5',
-                'FR Megan went forwards because 6',
-            ],
             resultFr: 'Results fr',
         },
         Robert: {
@@ -158,35 +153,15 @@ const form = () => {
             name: 'Robert',
             // positions: [3, 2, 3, 2, 3, 4, 5, 6],
             positions: {
-                '1': 6,
-                '2': 5,
-                '3': 4,
-                '4': 3,
-                '5': 4,
-                '6': 3,
+                '1': 1,
+                '2': 1,
+                '3': 1,
+                '4': 1,
+                '5': 2,
+                '6': 2,
                 '7': 2,
-                '8': 1,
+                '8': 2,
             },
-            updatesEn: [
-                'Robert went back because 3',
-                'Robert went back because 2',
-                'Robert went forwards because 3',
-                'Robert went back because 2',
-                'Robert went forwards because 3',
-                'Robert went forwards because 4',
-                'Robert went forwards because 5',
-                'Robert went forwards because 6',
-            ],
-            updatesFr: [
-                'FR Robert went back because 3',
-                'FR Robert went back because 2',
-                'FR Robert went forwards because 3',
-                'FR Robert went back because 2',
-                'FR Robert went forwards because 3',
-                'FR Robert went forwards because 4',
-                'FR Robert went forwards because 5',
-                'FR Robert went forwards because 6',
-            ],
             resultFr: 'Results fr',
         },
         Morena: {
@@ -194,72 +169,64 @@ const form = () => {
             name: 'Morena',
             // positions: [3, 2, 3, 2, 3, 4, 5, 6],
             positions: {
-                '1': 6,
-                '2': 5,
-                '3': 6,
-                '4': 5,
-                '5': 6,
-                '6': 5,
-                '7': 6,
-                '8': 7,
+                '1': 1,
+                '2': 1,
+                '3': 2,
+                '4': 2,
+                '5': 3,
+                '6': 3,
+                '7': 4,
+                '8': 5,
             },
-            updatesEn: [
-                'Morena went back because 3',
-                'Morena went back because 2',
-                'Morena went forwards because 3',
-                'Morena went back because 2',
-                'Morena went forwards because 3',
-                'Morena went forwards because 4',
-                'Morena went forwards because 5',
-                'Morena went forwards because 6',
-            ],
-            updatesFr: [
-                'FR Morena went back because 3',
-                'FR Morena went back because 2',
-                'FR Morena went forwards because 3',
-                'FR Morena went back because 2',
-                'FR Morena went forwards because 3',
-                'FR Morena went forwards because 4',
-                'FR Morena went forwards because 5',
-                'FR Morena went forwards because 6',
-            ],
         },
         Alex: {
             id: 4,
             name: 'Alex',
             // positions: [3, 2, 3, 2, 3, 4, 5, 6],
             positions: {
-                '1': 6,
-                '2': 7,
-                '3': 6,
-                '4': 7,
-                '5': 8,
-                '6': 8,
-                '7': 7,
-                '8': 6,
+                '1': 1,
+                '2': 2,
+                '3': 2,
+                '4': 3,
+                '5': 4,
+                '6': 5,
+                '7': 5,
+                '8': 5,
             },
-            updatesEn: [
-                'Alex went back because 3',
-                'Alex went back because 2',
-                'Alex went forwards because 3',
-                'Alex went back because 2',
-                'Alex went forwards because 3',
-                'Alex went forwards because 4',
-                'Alex went forwards because 5',
-                'Alex went forwards because 6',
-            ],
-            updatesFr: [
-                'FR Alex went back because 3',
-                'FR Alex went back because 2',
-                'FR Alex went forwards because 3',
-                'FR Alex went back because 2',
-                'FR Alex went forwards because 3',
-                'FR Alex went forwards because 4',
-                'FR Alex went forwards because 5',
-                'FR Alex went forwards because 6',
-            ],
         }
     }
+
+    const updatesObj = {
+        'one': {
+            updateEn: '<strong>Megan</strong> did not advance because she is a lesbian and has had to navigate multiple coming outs in her life. <br>The other course guides moved forward because they did not have to come out about their sexual orientation or gender identity.', //*Can be html
+            updateFr: 'Update Fr 1'
+        },
+        'two': {
+            updateEn: '<strong>Megan</strong> did not advance because she is a First Nation woman and have seen Indigenous peoples been portrayed on television in a degrading way. <br> <strong>Robert</strong> did not advance because he is a Black man and has seen other Black people portrayed on television in a stereotypical way. <br> <strong>Morena</strong> did not advance because she is from Central America and have witnessed colleagues invocating stereotypes regarding immigration when addressing to her or other immigrants. <br> <strong>Alex</strong> advanced because he is a white man, and the media positively and widely represents people of his race. ',
+            updateFr: 'Update Fr 2'
+        },
+        'three': {
+            updateEn: '<strong>Robert</strong> did not advance. Because of his dyslexia and anxiety has experienced people in his workplace making assumptions about tasks he can and cannot complete based on focus on the task itself rather than the barrier it presents and assumptions about what he can do, as opposed to adopting a person-centered lens and brainstorming together and providing accommodations. <br>Alex did not advance because of his mental health. As opposed to accommodations being asked about proactively, <strong>Alex</strong> feels as though he constantly has to advocate for himself and identify how he would like to engage in all activities and how he can best envision doing so.<br> <strong>Megan</strong> and <strong>Morena</strong> did advance.',
+            updateFr: 'Update Fr 3'
+        },
+        'four': {
+            updateEn: '<strong>Alex</strong> is the only one who advanced in this situation because as a straight white man, he does not experience systemic racism, homophobia, or transphobia. His employer’s mental health resources readily speak to his experience.',
+            updateFr: 'Update Fr 4'
+        },
+        'five': {
+            updateEn: '<strong>Megan</strong> is the only one who cannot advance here. She is a lesbian and has been sometimes afraid to express affection in social situations  ',
+            updateFr: 'Update Fr 5'
+        },
+        'six': {
+            updateEn: '<strong>Megan</strong> did not advance because even among kind, “socially-aware” colleagues, anti-Indigenous sentiment, misunderstandings, and biases towards Indigenous people prevail, negatively impacting Megan as well as concerning her based on possible negative impacts of these views on Indigenous people. <br><strong>Robert</strong> did not advance because while he has lived in Canada for his entire life, racially motivated jokes continue to make him feel like he is not totally accepted and included and he must choose whether to intervene gently to not further distance others from him OR choose to not interject when uncomfortable.<br><strong>Morena</strong> did not advance because negative views among colleagues on immigration being debated in the news make Morena question how much she can fully be accepted in her country and workplace.<br><strong>Alex</strong> advanced because… ',
+            updateFr: 'Update Fr 6'
+        },
+        'seven': {
+            updateEn: '<strong>Robert</strong> did not advance because he has dyslexia and has had to ask for accommodations on numerous times.<br><strong>Alex</strong> did not advance because he has a mental illness which is an invisible disability.<br><strong>Morena</strong> and <strong>Megan</strong> advanced because …  ',
+            updateFr: 'Update Fr 7'
+        },
+    }
+
 
 
     // Change persona position based on position index in characterObj
@@ -314,6 +281,37 @@ const form = () => {
             i++;
         }
     }
+    const reviewContent = () => {
+        // - create array from updateObj in en || fr
+        // - loop through array and display one message per click
+        let updatesArr = [];
+        let c = 0;
+        for (let update in updatesObj) {
+            const createLegend = () => {
+                let updateTxt = ``;
+                if (lang != 'en') {
+                    updateTxt += `${updatesObj[update].updateFr}`;
+                } else {
+                    updateTxt += `${updatesObj[update].updateEn}`;
+                }
+                updatesArr.push(updateTxt);
+            }
+            createLegend();
+        }
+        // -create add label function
+        const addLabel = () => {
+            allQuestions.forEach(fieldset => {
+                if (c < updatesArr.length && fieldset.hasAttribute('data-response') && (c + 1) == fieldset.getAttribute('data-response')) {
+                    // - for each fieldset data-response=== c, add that bubble
+                    let content = updatesArr[c];
+                    fieldset.querySelector('legend').innerHTML = content;
+                    c++;
+                }
+            });
+        }
+        // -call addLabel futction
+        addLabel();
+    };
 
     Array.from(allQuestions, (question) => {
         newQuestArr.push(question);
@@ -344,7 +342,13 @@ const form = () => {
                     };
                 });
 
-                changePosition();
+                // reviewContent();
+                if (question.hasAttribute('data-movement')) {
+                    changePosition();
+                    // form.focus();
+                }
+                reviewContent();
+
                 setTimeout(() => {
                     nextField.classList.remove('hidden');
                     currentField.classList.add('hidden');

@@ -12,7 +12,7 @@ class Loader {
         this.wrapContentNew();
 
         this.moveContent();
-        this.initJsManager();
+        // this.initJsManager();
         // this.initCssManager();
     }
     /* *********************************************************************

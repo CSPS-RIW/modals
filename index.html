@@ -42,18 +42,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="privilege-activity pa-theme-a">
-                    <p class="icon icon-click outside">In this activity, the course guides
-                        will be
-                        do a privilege walk. They will either step forward, or backwards,
-                        in response to the statements presented about their lived
-                        experiences.</p>
-                    <p>Click through the statements to see how they impact their levels of
-                        privilege. If you’d like a reminder, <a href="#"
+                    <p class="icon icon-click in-card">Click through the statements to see
+                        how they impact their levels of privilege. You can <a href="#"
                             class="trigger-modal" data-modal="modal_1"
                             data-toggle="tooltip" data-placement="top"
-                            title="Open modal">click here</a> to
-                        review the descriptions
-                        of each guide.</p>
+                            title="Open modal">review guide descriptions</a> if you need a
+                        reminder.</p>
                     <div class="pa-content">
                         <div class="pa-result" tabindex="-1">
                             <div class="pa-figure">
@@ -81,17 +75,27 @@
                         </div>
                         <div class="pa-questions">
                             <h2>LGBTQ2+ Questions</h2>
-                            <form action="#" method="POST" tabindex="-1">
-                                <fieldset>
+                            <form action="#" method="POST">
+                                <fieldset data-movement=" yes">
                                     <legend>1. I have never had to come out regarding my
                                         sexual orientation or gender identity.</legend>
                                     <div class="input-label">
                                         <input type="radio" name="pa-q1" id="pa-q1-yes"
                                             value="1">
-                                        <label for="pa-q1-yes">Next</label>
+                                        <label for="pa-q1-yes">Show results</label>
                                     </div>
                                 </fieldset>
-                                <fieldset class="hidden">
+                                <fieldset class="hidden" data-response="1">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q1" id="pa-an-1"
+                                            value="1">
+                                        <label for="pa-an-1">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
                                     <legend>2. I have consistently seen members of my
                                         racial, ethnic, or religious, group portrayed on
                                         television in a degrading or stereotypical way.
@@ -99,60 +103,125 @@
                                     <div class="input-label">
                                         <input type="radio" name="pa-q2" id="pa-q2-yes"
                                             value="1">
-                                        <label for="pa-q2-yes">Next</label>
+                                        <label for="pa-q2-yes">Show results</label>
                                     </div>
                                 </fieldset>
-                                <fieldset class="hidden">
+                                <fieldset class="hidden" data-response="2">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q2" id="pa-an-2"
+                                            value="1">
+                                        <label for="pa-an-2">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
                                     <legend>3. Individuals I engage with tend to pay too
                                         much attention to my impairments instead of the
                                         barriers I encounter and tend to make decisions on
                                         my behalf based on their perception of my
                                         disability / disabilities.</legend>
                                     <div class="input-label">
-                                        <input type="radio" name="pa-q3" class="insert1"
-                                            id="pa-q3-yes" value="1">
-                                        <label for="pa-q3-yes">Next</label>
+                                        <input type="radio" name="pa-q3" id="pa-q3-yes"
+                                            value="1">
+                                        <label for="pa-q3-yes">Show results</label>
                                     </div>
 
                                 </fieldset>
-                                <fieldset class="hidden">
-                                    <legend>4. I can access employer mental health support
-                                        from a caregiver who understands my experience.
+                                <fieldset class="hidden" data-response="3">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label" data-movement="yes">
+                                        <input type="radio" name="wa-q3" id="pa-an-3"
+                                            value="1">
+                                        <label for="pa-an-3">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
+                                    <legend>4. I can access employer mental health
+                                        support
+                                        from a caregiver who understands my
+                                        experience.
                                     </legend>
                                     <div class="input-label">
                                         <input type="radio" name="pa-q4" id="pa-q4-yes"
                                             value="1">
-                                        <label for="pa-q4-yes">Next</label>
+                                        <label for="pa-q4-yes">Next question</label>
                                     </div>
                                 </fieldset>
-                                <fieldset class="hidden">
-                                    <legend>5. I am free to express affection in social
-                                        situations without experiencing looks of shock,
+                                <fieldset class="hidden" data-response="4">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q4" id="pa-an-4"
+                                            value="1">
+                                        <label for="pa-an-4">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
+                                    <legend>5. I am free to express affection in
+                                        social
+                                        situations without experiencing looks of
+                                        shock,
                                         disgust, or hostility.</legend>
                                     <div class="input-label">
                                         <input type="radio" name="pa-q5" id="pa-q5-yes"
                                             value="1">
-                                        <label for="pa-q5-yes">Next</label>
+                                        <label for="pa-q5-yes">Show results</label>
                                     </div>
                                 </fieldset>
-                                <fieldset class="hidden">
+                                <fieldset class="hidden" data-response="5">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q5" id="pa-an-5"
+                                            value="1">
+                                        <label for="pa-an-5">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
                                     <legend>6. I can go home from most work meetings to
                                         feeling somewhat included, rather than isolated,
                                         out-of-place, outnumbered, unheard, held at a
                                         distance or feared.</legend>
                                     <div class="input-label">
-                                        <input type="radio" name="pa-q6" class="insert2"
-                                            id="pa-q6-yes" value="1">
-                                        <label for="pa-q6-yes">Next</label>
+                                        <input type="radio" name="pa-q6" id="pa-q6-yes"
+                                            value="1">
+                                        <label for="pa-q6-yes">Show results</label>
                                     </div>
                                 </fieldset>
-                                <fieldset class="hidden">
-                                    <legend>7. I have a disability (visible or invisible)
+                                <fieldset class="hidden" data-response="6">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q6" id="pa-an-6"
+                                            value="1">
+                                        <label for="pa-an-6">Next question</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-movement="yes">
+                                    <legend>7. I have a disability (visible or
+                                        invisible)
                                         or functional impairment.</legend>
                                     <div class="input-label">
                                         <input type="radio" name="pa-q7" id="pa-q7-yes"
                                             value="1">
-                                        <label for="pa-q7-yes">Next</label>
+                                        <label for="pa-q7-yes">Show results</label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="hidden" data-response="7">
+                                    <legend>
+
+                                    </legend>
+                                    <div class="input-label">
+                                        <input type="radio" name="wa-q7" id="pa-an-7"
+                                            value="1">
+                                        <label for="pa-an-7">Next question</label>
                                     </div>
                                 </fieldset>
                                 <fieldset class="hidden" data-last="true">
@@ -162,7 +231,7 @@
                                     <div class="input-label">
                                         <input type="radio" name="pa-q8" id="pa-q8-yes"
                                             value="1">
-                                        <label for="pa-q8-yes">Next</label>
+                                        <label for="pa-q8-yes">Next question</label>
                                     </div>
                                 </fieldset>
                             </form>

@@ -740,15 +740,29 @@ a:active, a:hover, a:focus {
   cursor: not-allowed;
 }
 
+@keyframes jump0 {
+  0% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  40% {
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
+  }
+  80% {
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
 @keyframes jump1 {
   0% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -759,10 +773,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -773,10 +787,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -787,10 +801,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -801,10 +815,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -815,10 +829,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -829,10 +843,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -843,10 +857,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -857,10 +871,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -871,10 +885,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -885,10 +899,10 @@ a:active, a:hover, a:focus {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
   40% {
-    transform: translate3d(0, -30%, 0) scale3d(0.7, 1.5, 1);
+    transform: translate3d(0, -30%, 0) scale3d(1, 1.2, 1);
   }
   80% {
-    transform: translate3d(0, -100%, 0) scale3d(1.5, 0.7, 1);
+    transform: translate3d(0, -100%, 0) scale3d(1.1, 1, 1);
   }
   100% {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -1109,7 +1123,7 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
 }
 .privilege-activity .pa-content .pa-result .pa-figure .figure-cont[data-pos="0"] {
   left: 50px;
-  animation: jump1 300ms;
+  animation: jump0 300ms;
 }
 .privilege-activity .pa-content .pa-result .pa-figure .figure-cont[data-pos="1"] {
   left: 115px;
@@ -1147,11 +1161,6 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
   padding: 4px;
   width: 100%;
 }
-@media (min-width: 992px) {
-  .privilege-activity .pa-content .pa-questions {
-    height: 11em;
-  }
-}
 .privilege-activity .pa-content .pa-questions > h2 {
   padding: 0 16px;
 }
@@ -1162,11 +1171,9 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
 }
 .privilege-activity .pa-content .pa-questions form {
   display: block;
-  height: 100%;
   padding: 0 16px;
 }
 .privilege-activity .pa-content .pa-questions form fieldset {
-  height: 8rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1184,12 +1191,18 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
 .privilege-activity .pa-content .pa-questions form fieldset:last-child {
   border-bottom: 0;
 }
+.privilege-activity .pa-content .pa-questions form fieldset[data-response=true] legend {
+  height: 5em;
+}
 .privilege-activity .pa-content .pa-questions form fieldset legend {
   float: none;
   font-size: 1em;
-  margin-bottom: 10px;
-  height: 5em;
+  min-height: 5em;
   width: 100%;
+}
+.privilege-activity .pa-content .pa-questions form fieldset .input-label {
+  position: relative;
+  margin-bottom: 0.5rem;
 }
 .privilege-activity .pa-content .pa-questions form fieldset label {
   text-align: center;
@@ -1255,6 +1268,9 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
   margin-bottom: 6px;
   text-align: left;
 }
+.privilege-activity .pa-content .pa-questions .summary-content {
+  margin-bottom: 0.75rem;
+}
 .privilege-activity .pa-content .pa-questions .summary-content [class^=summary-item-] {
   font-size: 1rem !important;
   margin: 0 16px;
@@ -1308,6 +1324,17 @@ html[data-nav^=m3] .privilege-activity .pa-header.before-ico-mouse::before {
 }
 .privilege-activity.pa-theme-a .pa-content .pa-questions {
   border-right: 0;
+}
+.privilege-activity.pa-theme-a .pa-content .pa-questions form.size-sm {
+  height: 8.75em;
+  background-color: #369;
+}
+.privilege-activity.pa-theme-a .pa-content .pa-questions form.size-sm fieldset {
+  height: 9em;
+}
+.privilege-activity.pa-theme-a .pa-content .pa-questions form.size-md {
+  height: 17.5em;
+  background-color: #559654;
 }
 
 a.trigger-modal:hover {
